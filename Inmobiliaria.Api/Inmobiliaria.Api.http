@@ -1,0 +1,6 @@
+@Inmobiliaria.Api_HostAddress = http://localhost:5256
+
+GET {{Inmobiliaria.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
