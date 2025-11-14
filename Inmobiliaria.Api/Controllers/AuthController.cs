@@ -23,7 +23,7 @@ public class AuthController : ControllerBase
 
         if (result.Contains("registrado"))
             return Ok(result);
-
+        
         return BadRequest(result);
     }
 
