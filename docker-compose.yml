@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Inmobiliaria.Api/Dockerfile
+    container_name: inmobiliaria_api
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+
+      # Railway DB Connection
+      ConnectionStrings__DefaultConnection: "server=trolley.proxy.rlwy.net;port=55128;database=railway;user=root;password=YcSBuFByaiHrUHkDqcMdoMqGwOBELrwQ;"
+
+      # JWT
+      Jwt__Key: "CLAVE_SUPER_SECRETA_DE_32_CARACTERES_MINIMO_1234"
+      Jwt__Issuer: "InmobiliariaAPI"
+      Jwt__Audience: "InmobiliariaClients"
+
+      # Cloudinary
+      Cloudinary__CloudName: "dxhe16nsk"
+      Cloudinary__ApiKey: "361949172343673"
+      Cloudinary__ApiSecret: "6_6iGVqDxGW5da16AaCUpNZ_WUQ"
+
+    networks:
+      - inmobiliaria-net
+
+networks:
+  inmobiliaria-net:
