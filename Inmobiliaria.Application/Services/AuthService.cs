@@ -26,7 +26,7 @@ public class AuthService : IAuthService
         {
             Name = dto.Name,
             Email = dto.Email,
-            Role = "Cliente",
+            Role = "Admin",
             Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
         };
 
