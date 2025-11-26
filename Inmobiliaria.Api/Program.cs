@@ -15,22 +15,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new  MySqlServerVersion(new Version(8, 0, 43))));
 
-var allowedOriginsString = builder.Configuration["Cors:AllowedOrigins"];
 
-// Dividir la cadena por ';' y eliminar entradas vacías
-var allowedOrigins = allowedOriginsString?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
-                     ?? new string[0]; // Asegura que se un array, incluso si está vacío.
 
 // 1. CORS
-var frontendUrl = builder.Configuration["Cors:Frontend"];
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(allowedOrigins)
+        policy
+            .WithOrigins(
+                "http://localhost:5173",
+                "https://appinmobiliaria.onrender.com"
+            )
             .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowAnyMethod();
     });
 });
 
@@ -91,11 +91,12 @@ app.UseCors("AllowFrontend");
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
     
 }
 
-app.UseSwagger();
-app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

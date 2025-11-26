@@ -19,21 +19,23 @@ public class AuthService : IAuthService
 
     public async Task<string> Register(RegisterRequest dto)
     {
-        var existing = await _userRepo.GetUserByEmail(dto.Email);
-        if (existing != null)
-            return "El email ya existe";
+        var exists = await _userRepo.GetUserByEmail(dto.Email);
+        if (exists != null) return "Ya existe un usuario con ese email";
+
+        var hashed = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
         var user = new User
         {
             Name = dto.Name,
             Email = dto.Email,
-            Role = Role.Admin,
-            Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+            Password = hashed,
+            Role = Role.Client 
         };
 
         await _userRepo.CreateUser(user);
         return "Usuario registrado correctamente";
     }
+
 
     public async Task<string> Login(LoginRequest dto)
     {
