@@ -1,5 +1,6 @@
 using Inmobiliaria.Application.DTOs.User;
 using Inmobiliaria.Application.Interfaces;
+using Inmobiliaria.Domain.Enum;
 using Inmobiliaria.Domain.Interfaces;
 using Inmobiliaria.Domain.Models;
 
@@ -26,7 +27,7 @@ public class AuthService : IAuthService
         {
             Name = dto.Name,
             Email = dto.Email,
-            Role = "Admin",
+            Role = Role.Admin,
             Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
         };
 

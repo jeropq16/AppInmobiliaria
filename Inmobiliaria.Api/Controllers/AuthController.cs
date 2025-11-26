@@ -19,35 +19,44 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest("Datos incompletos o inválidos.");
+
         var result = await _authService.Register(dto);
 
-        if (result.Contains("registrado"))
-            return Ok(result);
-        
-        return BadRequest(result);
+        if (result.Contains("registrado", StringComparison.OrdinalIgnoreCase))
+            return Ok(new { message = result });
+
+        return BadRequest(new { error = result });
     }
 
     // Login
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginRequest dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest("Credenciales inválidas.");
+
         var result = await _authService.Login(dto);
 
         if (result.StartsWith("ACCESS"))
-            return Ok(result);
+            return Ok(new { token = result });
 
-        return BadRequest(result);
+        return BadRequest(new { error = result });
     }
 
     // Refresh Token
     [HttpPost("refresh")]
     public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
     {
+        if (string.IsNullOrWhiteSpace(refreshToken))
+            return BadRequest("Debe enviar un refresh token válido.");
+
         var result = await _authService.RefreshToken(refreshToken);
 
         if (result.StartsWith("ACCESS"))
-            return Ok(result);
+            return Ok(new { token = result });
 
-        return BadRequest(result);
+        return BadRequest(new { error = result });
     }
 }
