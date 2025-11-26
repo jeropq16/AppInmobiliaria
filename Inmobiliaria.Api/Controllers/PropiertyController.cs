@@ -18,20 +18,21 @@ public class PropiertyController : ControllerBase
 
     // Todos pueden ver las propiedades (Cliente y Admin)
     [HttpGet]
-    [Authorize(Roles = "Admin,Cliente")]
+    [Authorize(Roles = "Admin,Client")]
     public async Task<IActionResult> GetAll()
     {
         var list = await _service.GetAll();
         return Ok(list);
     }
 
-    // Ver detalles: ambos roles
+    // Ver detalles
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin,Cliente")]
+    [Authorize(Roles = "Admin,Client")]
     public async Task<IActionResult> GetById(int id)
     {
         var property = await _service.GetById(id);
-        if (property == null) return NotFound();
+        if (property == null)
+            return NotFound(new { error = "Propiedad no encontrada" });
 
         return Ok(property);
     }
