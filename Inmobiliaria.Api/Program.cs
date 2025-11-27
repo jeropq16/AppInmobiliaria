@@ -1,7 +1,9 @@
 using System.Text;
 using Inmobiliaria.Application.Interfaces;
 using Inmobiliaria.Application.Services;
+using Inmobiliaria.Domain.Enum;
 using Inmobiliaria.Domain.Interfaces;
+using Inmobiliaria.Domain.Models;
 using Inmobiliaria.Infrastructure.Data;
 using Inmobiliaria.Infrastructure.Repositories;
 using Inmobiliaria.Infrastructure.Services;
@@ -117,6 +119,29 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    if (!db.Users.Any(u => u.Role == Role.Admin))
+    {
+        var hashed = BCrypt.Net.BCrypt.HashPassword("admin");
+
+        db.Users.Add(new User
+        {
+            Name = "MasterAdmin",
+            Email = "admin@gmail.com",
+            Password = hashed,
+            Role = Role.Admin,
+            RefreshToken = null,
+            RefreshTokenExpires = DateTime.UtcNow
+        });
+
+        db.SaveChanges();
+    }
+}
+
 
 app.Run();
 
