@@ -20,5 +20,11 @@ public class AppDbContext : DbContext
                 v => string.Join(",", v),
                 v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
             );
+
+        modelBuilder.Entity<User>()
+            .Property(u => u.Role)
+            .HasConversion<string>();
+        
+        base.OnModelCreating(modelBuilder);
     }
 }

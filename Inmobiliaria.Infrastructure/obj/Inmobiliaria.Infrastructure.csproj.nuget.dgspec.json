@@ -1,33 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Infrastructure/Inmobiliaria.Infrastructure.csproj": {}
+    "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Infrastructure\\Inmobiliaria.Infrastructure.csproj": {}
   },
   "projects": {
-    "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/Inmobiliaria.Application.csproj": {
+    "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\Inmobiliaria.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/Inmobiliaria.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\Inmobiliaria.Application.csproj",
         "projectName": "Inmobiliaria.Application",
-        "projectPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/Inmobiliaria.Application.csproj",
-        "packagesPath": "/home/ders/.nuget/packages/",
-        "outputPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/obj/",
+        "projectPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\Inmobiliaria.Application.csproj",
+        "packagesPath": "C:\\Users\\Jero\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/ders/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/Inmobiliaria.Domain.csproj": {
-                "projectPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/Inmobiliaria.Domain.csproj"
+              "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\Inmobiliaria.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\Inmobiliaria.Domain.csproj"
               }
             }
           }
@@ -105,26 +111,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/Inmobiliaria.Domain.csproj": {
+    "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\Inmobiliaria.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/Inmobiliaria.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\Inmobiliaria.Domain.csproj",
         "projectName": "Inmobiliaria.Domain",
-        "projectPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/Inmobiliaria.Domain.csproj",
-        "packagesPath": "/home/ders/.nuget/packages/",
-        "outputPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Domain/obj/",
+        "projectPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\Inmobiliaria.Domain.csproj",
+        "packagesPath": "C:\\Users\\Jero\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/ders/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -190,34 +202,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Infrastructure/Inmobiliaria.Infrastructure.csproj": {
+    "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Infrastructure\\Inmobiliaria.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Infrastructure/Inmobiliaria.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Infrastructure\\Inmobiliaria.Infrastructure.csproj",
         "projectName": "Inmobiliaria.Infrastructure",
-        "projectPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Infrastructure/Inmobiliaria.Infrastructure.csproj",
-        "packagesPath": "/home/ders/.nuget/packages/",
-        "outputPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Infrastructure/obj/",
+        "projectPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Infrastructure\\Inmobiliaria.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jero\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/ders/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/Inmobiliaria.Application.csproj": {
-                "projectPath": "/home/ders/Escritorio/AppInmobiliaria/Inmobiliaria.Application/Inmobiliaria.Application.csproj"
+              "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\Inmobiliaria.Application.csproj": {
+                "projectPath": "C:\\Users\\Jero\\Desktop\\AppInmobiliaria\\Inmobiliaria.Application\\Inmobiliaria.Application.csproj"
               }
             }
           }
@@ -291,7 +309,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
