@@ -45,7 +45,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPropiertyService, PropiertyService>();
 
 
-// 5. Cloudinary
+// 5. Cloudinar
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddEndpointsApiExplorer();
