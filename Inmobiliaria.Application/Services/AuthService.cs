@@ -23,16 +23,12 @@ public class AuthService : IAuthService
         if (existing != null)
             return "El email ya existe";
 
-        var hashed = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-        
         var user = new User
         {
             Name = dto.Name,
             Email = dto.Email,
-            Password = hashed,
-            Role = Role.Client,
-            RefreshToken = _jwt.GenerateRefreshToken(),
-            RefreshTokenExpires = DateTime.Now.AddDays(7)
+            Role = Role.Admin,
+            Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
         };
 
         await _userRepo.CreateUser(user);
@@ -42,17 +38,23 @@ public class AuthService : IAuthService
     public async Task<string> Login(LoginRequest dto)
     {
         var user = await _userRepo.GetUserByEmail(dto.Email);
-        if (user == null) return "Usuario no encontrado";
-        if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.Password)) return "Contraseña incorrecta";
+        if (user == null)
+            return "Usuario no encontrado";
 
-        var accessToken = _jwt.GenerateJwt(user);
-        var refreshToken = _jwt.GenerateRefreshToken();
+        bool valid = BCrypt.Net.BCrypt.Verify(dto.Password, user.Password);
+        if (!valid)
+            return "Contraseña incorrecta";
+
+        string accessToken = _jwt.GenerateJwt(user);
+        string refreshToken = _jwt.GenerateRefreshToken();
 
         user.RefreshToken = refreshToken;
         user.RefreshTokenExpires = DateTime.UtcNow.AddDays(7);
         
         await _userRepo.UpdateUser(user);
+
         
+
         return $"ACCESS:{accessToken} | REFRESH:{refreshToken}";
     }
 

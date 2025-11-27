@@ -15,20 +15,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new  MySqlServerVersion(new Version(8, 0, 43))));
 
-//CORS
+var allowedOriginsString = builder.Configuration["Cors:AllowedOrigins"];
 
+// Dividir la cadena por ';' y eliminar entradas vacías
+var allowedOrigins = allowedOriginsString?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
+                     ?? new string[0]; // Asegura que se un array, incluso si está vacío.
+
+// 1. CORS
+var frontendUrl = builder.Configuration["Cors:Frontend"];
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy
-            .WithOrigins(
-                "http://localhost:5173",
-                "https://inmo68.netlify.app",
-                "https://appinmobiliaria.onrender.com"
-            )
+        policy.WithOrigins(allowedOrigins)
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
