@@ -24,7 +24,7 @@ public class PropiertyRepository : IPropiertyRepository
         return await _context.Propierties.FindAsync(id);
     }
 
-    public async  Task CreatePropierty(Propierty propierty)
+    public async Task CreatePropierty(Propierty propierty)
     {
         _context.Propierties.Add(propierty);
         await _context.SaveChangesAsync();
