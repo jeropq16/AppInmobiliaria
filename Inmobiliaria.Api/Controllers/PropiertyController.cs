@@ -40,7 +40,7 @@ public class PropiertyController : ControllerBase
     // Crear propiedad (solo Admin)
     [HttpPost]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> Create(PropiertyCreateRequest dto)
+    public async Task<IActionResult> Create([FromForm] PropiertyCreateRequest dto)
     {
         var result = await _service.CreatePropierty(dto);
         return Ok(result);

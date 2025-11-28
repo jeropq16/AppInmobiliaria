@@ -8,7 +8,9 @@ using Inmobiliaria.Infrastructure.Data;
 using Inmobiliaria.Infrastructure.Repositories;
 using Inmobiliaria.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +31,8 @@ builder.Services.AddCors(options =>
                 "https://appinmobiliaria.onrender.com"
             )
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -74,6 +77,12 @@ builder.Services
 
 builder.Services.AddControllers();
 
+builder.Services.Configure<FormOptions>(options =>
+    {
+        options.MultipartBodyLengthLimit = 1024 * 1024 * 20;
+    }
+);
+
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
@@ -84,6 +93,8 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.UseCors("AllowFrontend");
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 // Configure the HTTP request pipeline.
@@ -96,8 +107,6 @@ if (app.Environment.IsDevelopment())
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapControllers();
 

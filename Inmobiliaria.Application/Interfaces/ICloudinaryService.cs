@@ -1,10 +1,11 @@
-
 using Microsoft.AspNetCore.Http;
 
-namespace Inmobiliaria.Application.Interfaces;
-
-
-public interface ICloudinaryService
+namespace Inmobiliaria.Application.Interfaces
 {
-    Task<string> UploadImage(IFormFile file);
-    Task<List<string>> UploadImages(List<IFormFile> files);}
+    public interface ICloudinaryService
+    {
+        Task<string> UploadImageAsync(IFormFile file);
+
+        Task<List<string>> UploadImagesAsync(IEnumerable<IFormFile> files);
+    }
+}
